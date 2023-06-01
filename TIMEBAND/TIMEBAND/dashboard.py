@@ -125,31 +125,25 @@ class TIMEBANDDashboard:
 
                     ax.plot(
                         true_ticks,
-                        self.reals[START:OBSRV, col],
-                        color="red",
-                        label=f"Real {feature_label}",
-                    )
-                    ax.plot(
-                        true_ticks,
                         self.output[START:OBSRV, col],
-                        color="black",
+                        color="slategray",
                         linewidth=2,
-                        label=f"Imputed {feature_label}",
+                        label=f"Real Value",
                     )
                     ax.plot(
                         pred_ticks,
                         self.preds[START:FRCST, col],
                         alpha=0.2,
                         linewidth=5,
-                        color=color,
-                        label=f"Pred {feature_label}",
+                        color='royalblue',
+                        label=f"Pred Value",
                     )
                     ax.fill_between(
                         pred_ticks,
                         self.lower[START:FRCST, col],
                         self.upper[START:FRCST, col],
                         alpha=0.2,
-                        color=color,
+                        color='cornflowerblue',
                         label="Normal Band",
                     )
                     col += 1

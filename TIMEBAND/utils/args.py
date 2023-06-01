@@ -14,6 +14,13 @@ class Parser:
 
         # Launcher
         parser.add_argument(
+            "-data",
+            "--data_file",
+            type=str,
+            help="Data file",
+            default=config["core"]["data_name"],
+        )
+        parser.add_argument(
             "-tm",
             "--train_mode",
             type=self.str2bool,

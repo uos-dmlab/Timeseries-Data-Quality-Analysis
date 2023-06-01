@@ -1,0 +1,93 @@
+2023-05-31 07:13:43 [info     ] **********************
+2023-05-31 07:13:43 [info     ] ***** TIME  BAND *****
+2023-05-31 07:13:43 [info     ] **********************
+2023-05-31 07:13:43 [info     ] ** System   Setting **
+2023-05-31 07:13:43 [info     ]   Random Seed : 31
+2023-05-31 07:13:43 [info     ]   MODELS TAG  : all 
+2023-05-31 07:13:43 [info     ]   OUTPUT DIR  : TIMEBAND/outputs/stock.sample/all 
+2023-05-31 07:13:43 [info     ]   VERBOSITY   : 0 
+2023-05-31 07:13:43 [info     ] ** TIMEBAND Setting **
+2023-05-31 07:13:43 [info     ] Timeband Dataset Setting
+2023-05-31 07:13:43 [info     ] Min Max info
+        TARGET      origin MIN    cutoff min    origin MAX    cutoff max
+------  --------  ------------  ------------  ------------  ------------
+open                      9200       9190.80         35800      35835.80
+high                      9280       9270.72         37000      37037.00
+low                       8570       8561.43         34800      34834.80
+close   O                 8850       8841.15         35200      35235.20
+volume                   17120      17102.88      21017010   21038027.01
+2023-05-31 07:13:43 [info     ] 
+  Dataset: 
+  - Config    : {'TAG': 'all', 'data_name': 'stock.sample', 'outputs': 'TIMEBAND/outputs/', 'pretrain': True, 'workers': 2, 'batch_size': 256, 'observed_len': 28, 'forecast_len': 28, 'verbosity': 0, 'prediction': True, 'path': 'TIMEBAND/outputs/stock.sample/all', 'models_path': 'TIMEBAND/outputs/stock.sample/all/models', 'logs_path': 'TIMEBAND/outputs/stock.sample/all/logs', 'logger': <utils.logger.Logger object at 0x7fee84875eb0>, 'device': device(type='cpu'), 'targets_dims': 1, 'directory': 'data/', 'targets': ['close'], 'drops': [], 'time_index': 'date', 'time_format': '%y-%m-%d', 'time_info': {'month': True, 'weekday': True, 'days': True, 'hours': False, 'minutes': False}, 'stride': 1, 'split_rate': 0.8, 'min_valid_scale': 2, 'sliding_step': 1, 'zero_is_missing': True, 'zero_impute': True, 'zero_ignore': True, 'cutoff': {'min': 0.0001, 'max': 0.0001}} 
+  - File path : /home/administrator/Desktop/django_project/TIMEBAND/data/stock.sample.csv 
+  - Time Idx  : date 
+  - Length    : 3000 
+  - Shape(E/D): (256, 28, 8) / (256, 28, 1) 
+  - Targets   : ['close'] (1 cols) 
+  - Cut Scale : Min 0.0001, Max 0.0001  - Input Col : Index(['open', 'high', 'low', 'close', 'volume', 'months', 'weekday', 'days'], dtype='object')
+2023-05-31 07:13:43 [info     ] Timeband Model Setting
+2023-05-31 07:13:43 [info     ] 
+  Model: 
+  - File path  : TIMEBAND/outputs/stock.sample/all/models 
+  - Pretrained : True 
+  - Save opts  : True 
+  - Load opts  : True 
+
+2023-05-31 07:13:43 [info     ] 
+  Dashboard: 
+  - visualize : False 
+
+2023-05-31 07:13:43 [info     ] ** Model   Training **
+2023-05-31 07:13:43 [info     ]  - Initiated netD : LSTMDiscriminator(
+  (lstm): LSTM(1, 256, batch_first=True)
+  (linear): Sequential(
+    (0): Linear(in_features=256, out_features=1, bias=True)
+    (1): Sigmoid()
+  )
+), netG: LSTMGenerator(
+  (lstm0): LSTM(8, 64, batch_first=True)
+  (lstm1): LSTM(64, 128, batch_first=True)
+  (lstm2): LSTM(128, 256, batch_first=True)
+  (linear): Sequential(
+    (0): Linear(in_features=256, out_features=1, bias=True)
+    (1): Tanh()
+  )
+)
+2023-05-31 07:13:43 [info     ] ***  MODEL IS SAVED ***
+2023-05-31 07:13:43 [info     ] Train (1/2)
+2023-05-31 07:13:43 [info     ]  - BEST Model Loading : TIMEBAND/outputs/stock.sample/all/models/netD_BEST.pth, TIMEBAND/outputs/stock.sample/all/models/netG_BEST.pth
+2023-05-31 07:13:44 [info     ]   - Train size : 2344, Valid size 601
+2023-05-31 07:13:44 [info     ] Train the model
+2023-05-31 07:14:17 [info     ] *** Best(0.151) MODEL IS SAVED ***
+2023-05-31 07:14:53 [info     ] *** Best(0.144) MODEL IS SAVED ***
+2023-05-31 07:15:50 [info     ] *** Best(0.139) MODEL IS SAVED ***
+2023-05-31 07:16:40 [info     ] *** Best(0.135) MODEL IS SAVED ***
+2023-05-31 07:17:27 [info     ] *** Best(0.132) MODEL IS SAVED ***
+2023-05-31 07:18:08 [info     ] *** Best(0.129) MODEL IS SAVED ***
+2023-05-31 07:18:51 [info     ] *** Best(0.127) MODEL IS SAVED ***
+2023-05-31 07:19:43 [info     ] *** Best(0.124) MODEL IS SAVED ***
+2023-05-31 07:21:27 [info     ] *** Best(0.121) MODEL IS SAVED ***
+2023-05-31 07:21:27 [info     ] ***  MODEL IS SAVED ***
+2023-05-31 07:21:27 [info     ]  - BEST Model Loading : TIMEBAND/outputs/stock.sample/all/models/netD_BEST.pth, TIMEBAND/outputs/stock.sample/all/models/netG_BEST.pth
+2023-05-31 07:21:27 [info     ] *** Best() MODEL IS SAVED ***
+2023-05-31 07:21:27 [info     ] Done (1/2) 
+2023-05-31 07:21:27 [info     ] Train (2/2)
+2023-05-31 07:21:27 [info     ]  - BEST Model Loading : TIMEBAND/outputs/stock.sample/all/models/netD_BEST.pth, TIMEBAND/outputs/stock.sample/all/models/netG_BEST.pth
+2023-05-31 07:21:28 [info     ]   - Train size : 2344, Valid size 601
+2023-05-31 07:21:28 [info     ] Train the model
+2023-05-31 07:24:35 [info     ] *** Best(0.118) MODEL IS SAVED ***
+2023-05-31 07:28:46 [info     ] *** Best(0.115) MODEL IS SAVED ***
+2023-05-31 07:33:16 [info     ] *** Best(0.114) MODEL IS SAVED ***
+2023-05-31 07:37:01 [info     ] *** Best(0.110) MODEL IS SAVED ***
+2023-05-31 07:41:36 [info     ] *** Best(0.108) MODEL IS SAVED ***
+2023-05-31 07:41:36 [info     ] ***  MODEL IS SAVED ***
+2023-05-31 07:41:36 [info     ]  - BEST Model Loading : TIMEBAND/outputs/stock.sample/all/models/netD_BEST.pth, TIMEBAND/outputs/stock.sample/all/models/netG_BEST.pth
+2023-05-31 07:41:36 [info     ] *** Best() MODEL IS SAVED ***
+2023-05-31 07:41:36 [info     ] Done (2/2) 
+2023-05-31 07:41:36 [info     ] *********************
+2023-05-31 07:41:36 [info     ] - Model Output -
+2023-05-31 07:41:36 [info     ] *********************
+2023-05-31 07:41:36 [info     ]  - BEST Model Loading : TIMEBAND/outputs/stock.sample/all/models/netD_BEST.pth, TIMEBAND/outputs/stock.sample/all/models/netG_BEST.pth
+2023-05-31 07:41:37 [info     ]  - Data size : 2973
+2023-05-31 07:41:37 [info     ] RUN the model
+2023-05-31 07:41:41 [info     ] TIMEBAND/outputs/stock.sample/all/visualize.csv is saved

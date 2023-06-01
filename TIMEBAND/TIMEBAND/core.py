@@ -106,11 +106,14 @@ class TIMEBANDCore:
         dataset = self.dataset.prepare_testset()
         dataset = self.loader(dataset)
 
-        target_path = os.path.join(self.output_path, "target.csv")
+        # target_path = os.path.join(self.output_path, "target.csv")
+        target_path = os.path.join(self.output_path, "visualize.csv")
         target_output = self.runner.run(dataset)
         target_output.to_csv(target_path)
 
         logger.info(f"{target_path} is saved")
+        
+        return target_output
 
     def loader(self, dataset: TIMEBANDDataset) -> DataLoader:
         dataloader = DataLoader(dataset, self.batch_size, num_workers=self.workers)

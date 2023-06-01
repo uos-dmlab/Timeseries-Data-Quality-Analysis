@@ -1,7 +1,7 @@
 import os
 import torch
-from .utils.lstm_layer import LSTMGenerator as NetG
-from .utils.lstm_layer import LSTMDiscriminator as NetD
+from TIMEBAND.utils.lstm_layer import LSTMGenerator as NetG
+from TIMEBAND.utils.lstm_layer import LSTMDiscriminator as NetD
 
 logger = None
 

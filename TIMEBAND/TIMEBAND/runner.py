@@ -74,6 +74,12 @@ class TIMEBANDRunner:
 
         tqdm_ = tqdm(dataset)
         outputs = self.dataset.observed
+        ## add 221214
+        outputs_real = self.dataset.observed
+        outputs_target = self.dataset.observed
+        outputs_preds = self.dataset.observed
+        outputs_lower = self.dataset.observed
+        outputs_upper = self.dataset.observed
         for i, data in enumerate(tqdm_):
             true_x = data["encoded"].to(self.device)
             true_y = data["decoded"].to(self.device)
@@ -96,7 +102,13 @@ class TIMEBANDRunner:
 
             output = np.concatenate([outputs[-1:], reals])
             target = self.adjust(output, preds, masks, lower, upper)
-            outputs = np.concatenate([outputs[: 1 - forecast_len], target])
+            # outputs = np.concatenate([outputs[: 1 - forecast_len], target])
+            ## add 221214 ##
+            outputs_real = np.concatenate([outputs_target[: 1 - forecast_len], reals])
+            outputs_target = np.concatenate([outputs_target[: 1 - forecast_len], target])
+            outputs_preds = np.concatenate([outputs_preds[: 1 - forecast_len], preds])
+            outputs_lower = np.concatenate([outputs_lower[: 1 - forecast_len], lower])
+            outputs_upper = np.concatenate([outputs_upper[: 1 - forecast_len], upper])
 
             # #######################
             # Visualize
@@ -106,10 +118,14 @@ class TIMEBANDRunner:
 
         # Dashboard
         self.dashboard.clear_figure()
-        outputs = pd.DataFrame(
-            outputs, columns=self.dataset.targets, index=self.dataset.times
+        outputs_final = np.concatenate([outputs_real, outputs_target, outputs_preds, outputs_lower, outputs_upper], axis=1)
+        outputs_final = pd.DataFrame(
+            # outputs, columns=self.dataset.targets, index=self.dataset.times
+            outputs_final, columns=['real', 'target','preds','lower','upper'], index=self.dataset.times
         )
-        return outputs
+        outputs_final = outputs_final[outputs_final['real'] > 0]
+
+        return outputs_final
 
     def adjust(self, output, preds, masks, lower, upper):
         len = preds.shape[0]
@@ -130,6 +146,7 @@ class TIMEBANDRunner:
             output[p + 1] = value
 
         target = output[1:]
+
         return target
 
     def pred_initate(self):
@@ -183,7 +200,6 @@ class TIMEBANDRunner:
         self.labels.to_csv(labels_path)
 
         logger.info(f"CSV saved at {labels_path}")
-
 
 def desc(training, epoch, score, losses):
     process = "Train" if training else "Valid"

@@ -3,8 +3,8 @@ import torch
 import numpy as np
 import pandas as pd
 from tabulate import tabulate
-from .utils.dataset import Dataset
-from .utils.time import time_cycle
+from TIMEBAND.utils.dataset import Dataset
+from TIMEBAND.utils.time import time_cycle
 
 logger = None
 
@@ -64,7 +64,7 @@ class TIMEBANDDataset:
 
     def init_dataset(self) -> pd.DataFrame:
         # Read csv data
-        self.csv_path = os.path.join(self.directory, f"{self.data_name}.csv")
+        self.csv_path = os.path.join("/home/administrator/Desktop/django_project/TIMEBAND/" + self.directory, f"{self.data_name}.csv")
         self.origin = data = pd.read_csv(self.csv_path, parse_dates=[self.time_index])
         data.drop(self.drops, axis=1, inplace=True)
 

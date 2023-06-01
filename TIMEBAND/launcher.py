@@ -24,7 +24,7 @@ def seeding(seed=31):
     np.set_printoptions(linewidth=np.inf, precision=3, suppress=True)
 
 
-def load_config(config_path: str = "config.json"):
+def load_config(config_path: str = "/django_project/TIMEBAND/config.json"):
     with open(config_path, encoding="utf-8") as f:
         config = json.load(f)
     config = Parser(config).config
@@ -127,3 +127,4 @@ def launcher():
 
 if __name__ == "__main__":
     launcher()
+    # print('launcher')
