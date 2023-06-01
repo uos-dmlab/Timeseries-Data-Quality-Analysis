@@ -1,0 +1,84 @@
+2023-05-22 10:55:03 [info     ] **********************
+2023-05-22 10:55:03 [info     ] ***** TIME  BAND *****
+2023-05-22 10:55:03 [info     ] **********************
+2023-05-22 10:55:03 [info     ] ** System   Setting **
+2023-05-22 10:55:03 [info     ]   Random Seed : 31
+2023-05-22 10:55:03 [info     ]   MODELS TAG  : all 
+2023-05-22 10:55:03 [info     ]   OUTPUT DIR  : TIMEBAND/outputs/stock.sample\all 
+2023-05-22 10:55:03 [info     ]   VERBOSITY   : 0 
+2023-05-22 10:55:03 [info     ] ** TIMEBAND Setting **
+2023-05-22 10:55:03 [info     ] Timeband Dataset Setting
+2023-05-22 10:55:03 [info     ] Min Max info
+        TARGET      origin MIN    cutoff min    origin MAX    cutoff max
+------  --------  ------------  ------------  ------------  ------------
+open                      9200       9190.80         45850      45895.85
+high                      9280       9270.72         45900      45945.90
+low                       8570       8561.43         44150      44194.15
+close   O                 8850       8841.15         45250      45295.25
+volume                   17120      17102.88      21017010   21038027.01
+2023-05-22 10:55:03 [info     ] 
+  Dataset: 
+  - Config    : {'TAG': 'all', 'data_name': 'stock.sample', 'outputs': 'TIMEBAND/outputs/', 'pretrain': True, 'workers': 2, 'batch_size': 256, 'observed_len': 28, 'forecast_len': 28, 'verbosity': 0, 'prediction': True, 'path': 'TIMEBAND/outputs/stock.sample\\all', 'models_path': 'TIMEBAND/outputs/stock.sample\\all\\models', 'logs_path': 'TIMEBAND/outputs/stock.sample\\all\\logs', 'logger': <utils.logger.Logger object at 0x000001C086253F10>, 'device': device(type='cuda', index=0), 'targets_dims': 1, 'directory': 'data/', 'targets': ['close'], 'drops': [], 'time_index': 'date', 'time_format': '%y-%m-%d', 'time_info': {'month': True, 'weekday': True, 'days': True, 'hours': False, 'minutes': False}, 'stride': 1, 'split_rate': 0.8, 'min_valid_scale': 2, 'sliding_step': 1, 'zero_is_missing': True, 'zero_impute': True, 'zero_ignore': True, 'cutoff': {'min': 0.0001, 'max': 0.0001}} 
+  - File path : data/stock.sample.csv 
+  - Time Idx  : date 
+  - Length    : 4922 
+  - Shape(E/D): (256, 28, 8) / (256, 28, 1) 
+  - Targets   : ['close'] (1 cols) 
+  - Cut Scale : Min 0.0001, Max 0.0001  - Input Col : Index(['open', 'high', 'low', 'close', 'volume', 'months', 'weekday', 'days'], dtype='object')
+2023-05-22 10:55:03 [info     ] Timeband Model Setting
+2023-05-22 10:55:03 [info     ] 
+  Model: 
+  - File path  : TIMEBAND/outputs/stock.sample\all\models 
+  - Pretrained : True 
+  - Save opts  : True 
+  - Load opts  : True 
+
+2023-05-22 10:55:04 [info     ] 
+  Dashboard: 
+  - visualize : False 
+
+2023-05-22 10:55:04 [info     ] ** Model   Training **
+2023-05-22 10:55:05 [info     ]  - Initiated netD : LSTMDiscriminator(
+  (lstm): LSTM(1, 256, batch_first=True)
+  (linear): Sequential(
+    (0): Linear(in_features=256, out_features=1, bias=True)
+    (1): Sigmoid()
+  )
+), netG: LSTMGenerator(
+  (lstm0): LSTM(8, 64, batch_first=True)
+  (lstm1): LSTM(64, 128, batch_first=True)
+  (lstm2): LSTM(128, 256, batch_first=True)
+  (linear): Sequential(
+    (0): Linear(in_features=256, out_features=1, bias=True)
+    (1): Tanh()
+  )
+)
+2023-05-22 10:55:05 [info     ] ***  MODEL IS SAVED ***
+2023-05-22 10:55:05 [info     ] Train (1/2)
+2023-05-22 10:55:05 [info     ]  - BEST Model Loading : TIMEBAND/outputs/stock.sample\all\models\netD_BEST.pth, TIMEBAND/outputs/stock.sample\all\models\netG_BEST.pth
+2023-05-22 10:55:05 [info     ]   - Train size : 3881, Valid size 986
+2023-05-22 10:55:05 [info     ] Train the model
+2023-05-22 10:55:15 [info     ] *** Best(0.158) MODEL IS SAVED ***
+2023-05-22 10:56:11 [info     ] *** Best(0.142) MODEL IS SAVED ***
+2023-05-22 10:56:20 [info     ] *** Best(0.116) MODEL IS SAVED ***
+2023-05-22 10:56:29 [info     ] *** Best(0.082) MODEL IS SAVED ***
+2023-05-22 10:56:38 [info     ] *** Best(0.066) MODEL IS SAVED ***
+2023-05-22 10:56:38 [info     ] ***  MODEL IS SAVED ***
+2023-05-22 10:56:38 [info     ]  - BEST Model Loading : TIMEBAND/outputs/stock.sample\all\models\netD_BEST.pth, TIMEBAND/outputs/stock.sample\all\models\netG_BEST.pth
+2023-05-22 10:56:38 [info     ] *** Best() MODEL IS SAVED ***
+2023-05-22 10:56:38 [info     ] Done (1/2) 
+2023-05-22 10:56:38 [info     ] Train (2/2)
+2023-05-22 10:56:38 [info     ]  - BEST Model Loading : TIMEBAND/outputs/stock.sample\all\models\netD_BEST.pth, TIMEBAND/outputs/stock.sample\all\models\netG_BEST.pth
+2023-05-22 10:56:39 [info     ]   - Train size : 3881, Valid size 986
+2023-05-22 10:56:39 [info     ] Train the model
+2023-05-22 10:58:10 [info     ] ***  MODEL IS SAVED ***
+2023-05-22 10:58:10 [info     ]  - BEST Model Loading : TIMEBAND/outputs/stock.sample\all\models\netD_BEST.pth, TIMEBAND/outputs/stock.sample\all\models\netG_BEST.pth
+2023-05-22 10:58:11 [info     ] *** Best() MODEL IS SAVED ***
+2023-05-22 10:58:11 [info     ] Done (2/2) 
+2023-05-22 10:58:11 [info     ] *********************
+2023-05-22 10:58:11 [info     ] - Model Output -
+2023-05-22 10:58:11 [info     ] *********************
+2023-05-22 10:58:11 [info     ]  - BEST Model Loading : TIMEBAND/outputs/stock.sample\all\models\netD_BEST.pth, TIMEBAND/outputs/stock.sample\all\models\netG_BEST.pth
+2023-05-22 10:58:11 [info     ]  - Data size : 4895
+2023-05-22 10:58:11 [info     ] RUN the model
+2023-05-22 10:58:16 [info     ] TIMEBAND/outputs/stock.sample\all\visualize.csv is saved

@@ -1,0 +1,20 @@
+2023-05-23 12:47:11 [info     ] **********************
+2023-05-23 12:47:11 [info     ] ***** TIME  BAND *****
+2023-05-23 12:47:11 [info     ] **********************
+2023-05-23 12:47:11 [info     ] ** System   Setting **
+2023-05-23 12:47:11 [info     ]   Random Seed : 31
+2023-05-23 12:47:11 [info     ]   MODELS TAG  : all 
+2023-05-23 12:47:11 [info     ]   OUTPUT DIR  : TIMEBAND/outputs/stock.sample\all 
+2023-05-23 12:47:11 [info     ]   VERBOSITY   : 0 
+2023-05-23 12:47:11 [info     ] ** TIMEBAND Setting **
+2023-05-23 12:47:11 [info     ] Timeband Dataset Setting
+2023-05-23 12:47:57 [info     ] **********************
+2023-05-23 12:47:57 [info     ] ***** TIME  BAND *****
+2023-05-23 12:47:57 [info     ] **********************
+2023-05-23 12:47:57 [info     ] ** System   Setting **
+2023-05-23 12:47:57 [info     ]   Random Seed : 31
+2023-05-23 12:47:57 [info     ]   MODELS TAG  : all 
+2023-05-23 12:47:57 [info     ]   OUTPUT DIR  : TIMEBAND/outputs/stock.sample\all 
+2023-05-23 12:47:57 [info     ]   VERBOSITY   : 0 
+2023-05-23 12:47:57 [info     ] ** TIMEBAND Setting **
+2023-05-23 12:47:57 [info     ] Timeband Dataset Setting
