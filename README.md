@@ -1,8 +1,8 @@
 # Timeseries-Data-Quality-Analysis
 
 ## TIMEBAND
-- Data
+- Data: Stock sample dataset
 ## Univariate Time Series Correction
-- Data
+- Data: NAB dataset (from:https://github.com/numenta/NAB)
 ## Multivariate Time Series Correction
-- Data
+- Data: SWaT dataset, WADI dataset, HAI 22.03 dataset
